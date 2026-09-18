@@ -1,4 +1,4 @@
-# VisionForge - MineAR (Shramik Saathi) ⛏️🛡️
+# Shramik Saathi by VisionForge ⛏️🛡️
 
 > **SIH Problem Statement SIH26041**: Vocational Safety Training & Emergency Response Simulator for Underground Coal Mines.  
 > **Statutory Compliance**: Fully compliant with the **Directorate General of Mines Safety (DGMS)** guidelines and **Coal Mines Regulations 2017 (CMR 2017)** (Dhanbad, Jharia, Bokaro Coalfields).
