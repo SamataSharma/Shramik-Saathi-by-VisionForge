@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>SHRAMIK SAATHI | Vocational Safety Simulator</title>
+  <meta name="description" content="Augmented Reality Vocational Safety Training Simulator for Underground Coal Mining in Jharkhand. Compliant with DGMS & Coal Mines Regulations 2017.">
+  <meta name="theme-color" content="#0b1f33">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="icon" type="image/svg+xml" href="/assets/images/worker_avatar.svg">
+
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Application Stylesheets (Cache Busted) -->
+  <link rel="stylesheet" href="/css/main.css?v=2.5.0">
+  <link rel="stylesheet" href="/css/ar.css?v=2.5.0">
+  <link rel="stylesheet" href="/css/dashboard.css?v=2.5.0">
+
+  <!-- Offline Local Three.js Engine -->
+  <script src="/assets/three.min.js?v=2.5.0"></script>
+  <!-- Immediate Boot Styles: Enforce #splash visibility and prevent any Home/nav flicker -->
+  <style>
+    /* Critical Initial Boot State: Only #splash is visible on first render */
+    #splash {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 999999;
+      background: radial-gradient(circle at center, #0f233a 0%, #081524 55%, #02070e 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      user-select: none;
+      opacity: 1;
+      transition: opacity 0.4s ease-out;
+    }
+    #splash .splash-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      text-align: center;
+    }
+    #splash .splash-logo {
+      width: 250px;
+      max-width: 75vw;
+      height: auto;
+      object-fit: contain;
+      border-radius: 18px;
+      filter: drop-shadow(0 14px 35px rgba(0, 0, 0, 0.75));
+    }
+    #splash .splash-subtitle {
+      margin-top: 24px;
+      color: #94a3b8;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-family: 'Inter', sans-serif;
+    }
+    #splash .splash-loader {
+      margin-top: 20px;
+      width: 36px;
+      height: 4px;
+      background: rgba(56, 189, 248, 0.2);
+      border-radius: 2px;
+      overflow: hidden;
+      position: relative;
+    }
+    #splash .splash-loader::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 50%;
+      background: #38bdf8;
+      border-radius: 2px;
+      animation: splashPulse 1.2s infinite ease-in-out;
+    }
+    @keyframes splashPulse {
+      0% { left: -50%; width: 30%; }
+      50% { left: 30%; width: 60%; }
+      100% { left: 100%; width: 30%; }
+    }
+    /* Independent Full-Screen Login Screen Base */
+    #login {
+      display: none;
+      width: 100vw;
+      min-height: 100vh;
+      background: radial-gradient(circle at center, #0f233a 0%, #081524 60%, #02070e 100%);
+      z-index: 99999;
+      position: fixed;
+      top: 0;
+      left: 0;
+      overflow-y: auto;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Route-Based Strict Display Isolation: Guarantee #login and #home never overlap */
+    body.route-login #app-shell,
+    body.route-login #bottom-nav,
+    body.route-login #global-utility-bar,
+    body.route-login #splash {
+      display: none !important;
+    }
+    body.route-login #login {
+      display: flex !important;
+    }
+
+    body.route-splash #app-shell,
+    body.route-splash #bottom-nav,
+    body.route-splash #global-utility-bar,
+    body.route-splash #login {
+      display: none !important;
+    }
+    body.route-splash #splash {
+      display: flex !important;
+    }
+
+    body:not(.route-login) #login {
+      display: none !important;
+    }
+
+    /* Hide in-app views by default during splash boot */
+    body:not(.bootstrapped):not(.route-login) #app-shell,
+    body:not(.bootstrapped):not(.route-login) #bottom-nav,
+    body:not(.bootstrapped):not(.route-login) #global-utility-bar,
+    body:not(.bootstrapped):not(.route-login) #home,
+    body:not(.bootstrapped):not(.route-login) #supervisor {
+      display: none !important;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Full-Screen Initial MINE AR Splash Screen with NEW Official Logo -->
+  <div id="splash" aria-label="SHRAMIK SAATHI Splash Screen">
+    <div class="splash-content">
+      <img 
+        src="/assets/images/shramik_saathi_logo.png" 
+        alt="SHRAMIK SAATHI" 
+        class="splash-logo" 
+        style="width: 220px; max-width: 70vw; aspect-ratio: 1/1; object-fit: contain; border-radius: 20px; filter: drop-shadow(0 14px 35px rgba(0, 0, 0, 0.75));"
+      />
+      <div class="splash-subtitle">Vocational Safety Simulator</div>
+      <div class="splash-loader"></div>
+    </div>
+  </div>
+
+  <!-- Dedicated Full-Screen Independent Login Screen Container -->
+  <div id="login" aria-label="SHRAMIK SAATHI Login Portal">
+    <!-- Mounted strictly by Router on #login -->
+  </div>
+
+  <!-- Top Global Utility Bar (Only for In-App Trainee & Supervisor Views) -->
+  <aside id="global-utility-bar" aria-label="Simulator Controls">
+    <div class="util-left">
+      <div class="brand-badge">
+        <span>SHRAMIK SAATHI</span>
+      </div>
+      <div id="sync-status-pill" class="sync-status-pill" title="Click to synchronize offline queue">
+        <span class="sync-dot"></span>
+        <span>Online (Cloud Synced)</span>
+      </div>
+    </div>
+    <div class="util-right">
+      <button id="btn-util-lang" class="btn-util" aria-label="Toggle Language">🌐 EN</button>
+      <button id="btn-util-role" class="btn-util" aria-label="Switch User Role">👤 Account / Login</button>
+    </div>
+  </aside>
+
+  <!-- Device Shell (Mobile-First Frame for In-App Screens) -->
+  <main id="app-shell">
+    <!-- Dynamic View Area (Swapped by Client Router) -->
+    <section id="main-view" aria-live="polite">
+      <!-- Injected via Router -->
+    </section>
+  </main>
+
+  <!-- Fixed Bottom Navigation Bar (Faithfully Matching Screenshot) -->
+  <nav id="bottom-nav" aria-label="Bottom Navigation">
+    <a href="#home" class="nav-tab active" data-tab="home" id="nav-tab-home">
+      <span class="icon-pill">
+        <svg class="tab-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+          <polyline points="9 22 9 12 15 12 15 22"></polyline>
+        </svg>
+      </span>
+      <span>Home</span>
+    </a>
+
+    <a href="#levels" class="nav-tab" data-tab="levels" id="nav-tab-levels">
+      <span class="icon-pill">
+        <svg class="tab-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+          <polyline points="2 17 12 22 22 17"></polyline>
+          <polyline points="2 12 12 17 22 12"></polyline>
+        </svg>
+      </span>
+      <span>Levels</span>
+    </a>
+
+    <a href="#progress" class="nav-tab" data-tab="progress" id="nav-tab-progress">
+      <span class="icon-pill">
+        <svg class="tab-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="20" x2="18" y2="10"></line>
+          <line x1="12" y1="20" x2="12" y2="4"></line>
+          <line x1="6" y1="20" x2="6" y2="14"></line>
+        </svg>
+      </span>
+      <span>Progress</span>
+    </a>
+
+    <a href="#settings" class="nav-tab" data-tab="settings" id="nav-tab-settings">
+      <span class="icon-pill">
+        <svg class="tab-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="3"></circle>
+          <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+        </svg>
+      </span>
+      <span>Settings</span>
+    </a>
+  </nav>
+
+  <!-- Immediate Cache Purge & Service Worker Sync for Dev Updates -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.getRegistrations().then(registrations => {
+        registrations.forEach(r => r.update());
+      });
+    }
+    if ('caches' in window) {
+      caches.keys().then(keys => {
+        keys.forEach(k => {
+          if (k !== 'mine-ar-v2.7.0') caches.delete(k);
+        });
+      });
+    }
+  </script>
+
+  <!-- Core Application Module -->
+  <script type="module" src="/js/app.js?v=2.7.0"></script>
+</body>
+</html>

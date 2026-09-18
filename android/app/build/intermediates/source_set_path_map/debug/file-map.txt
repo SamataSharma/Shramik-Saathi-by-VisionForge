@@ -1,0 +1,7 @@
+org.visionforge.minear.app-pngs-0 /Users/sahnikbarui/Downloads/final sih vision fordge/android/app/build/generated/res/pngs/debug
+org.visionforge.minear.app-resValues-1 /Users/sahnikbarui/Downloads/final sih vision fordge/android/app/build/generated/res/resValues/debug
+org.visionforge.minear.app-packageDebugResources-2 /Users/sahnikbarui/Downloads/final sih vision fordge/android/app/build/intermediates/incremental/debug/packageDebugResources/merged.dir
+org.visionforge.minear.app-packageDebugResources-3 /Users/sahnikbarui/Downloads/final sih vision fordge/android/app/build/intermediates/incremental/debug/packageDebugResources/stripped.dir
+org.visionforge.minear.app-merged_res-4 /Users/sahnikbarui/Downloads/final sih vision fordge/android/app/build/intermediates/merged_res/debug
+org.visionforge.minear.app-debug-5 /Users/sahnikbarui/Downloads/final sih vision fordge/android/app/src/debug/res
+org.visionforge.minear.app-main-6 /Users/sahnikbarui/Downloads/final sih vision fordge/android/app/src/main/res

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 120" width="180" height="120">
+  <defs>
+    <linearGradient id="hGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#475569"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+  </defs>
+  <rect width="180" height="120" rx="14" fill="url(#hGrad)"/>
+  <!-- Conveyor Frame -->
+  <line x1="20" y1="80" x2="160" y2="80" stroke="#94a3b8" stroke-width="6"/>
+  <circle cx="45" cy="80" r="14" fill="#334155" stroke="#f1f5f9" stroke-width="3"/>
+  <circle cx="90" cy="80" r="14" fill="#334155" stroke="#f1f5f9" stroke-width="3"/>
+  <circle cx="135" cy="80" r="14" fill="#334155" stroke="#f1f5f9" stroke-width="3"/>
+  <!-- Fire Flame -->
+  <path d="M90 70 C70 50, 80 30, 90 20 C100 30, 110 50, 90 70 Z" fill="#ef4444"/>
+  <path d="M90 70 C80 58, 86 42, 90 35 C94 42, 100 58, 90 70 Z" fill="#f59e0b"/>
+  <!-- Warning badge -->
+  <rect x="110" y="16" width="56" height="24" rx="6" fill="#dc2626"/>
+  <text x="138" y="32" fill="#ffffff" font-family="sans-serif" font-size="11" font-weight="bold" text-anchor="middle">CMR 136</text>
+</svg>

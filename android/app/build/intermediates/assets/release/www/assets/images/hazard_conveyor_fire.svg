@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <defs>
+    <radialGradient id="tunnelDark" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="60%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#020617"/>
+    </radialGradient>
+    <linearGradient id="coalWall" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#18181b"/>
+      <stop offset="50%" stop-color="#27272a"/>
+      <stop offset="100%" stop-color="#09090b"/>
+    </linearGradient>
+    <linearGradient id="fireGlow" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#ef4444"/>
+      <stop offset="50%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="rgba(254, 240, 138, 0)"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Gallery Background Tunnel -->
+  <rect width="800" height="500" fill="url(#tunnelDark)"/>
+
+  <!-- Underground Coal Strata & Rib Pillars -->
+  <path d="M0 0 L180 120 L180 500 L0 500 Z" fill="url(#coalWall)"/>
+  <path d="M800 0 L620 120 L620 500 L800 500 Z" fill="url(#coalWall)"/>
+  <path d="M180 120 L620 120 L620 160 L180 160 Z" fill="#18181b"/>
+
+  <!-- Steel Roof Arch Supports -->
+  <path d="M140 500 C140 180, 660 180, 660 500" fill="none" stroke="#475569" stroke-width="14"/>
+  <path d="M140 500 C140 180, 660 180, 660 500" fill="none" stroke="#64748b" stroke-width="4"/>
+
+  <path d="M220 500 C220 230, 580 230, 580 500" fill="none" stroke="#334155" stroke-width="10"/>
+
+  <!-- Overhead Yellow Ventilation Ducting -->
+  <path d="M200 180 C350 160, 500 170, 750 150" fill="none" stroke="#eab308" stroke-width="26" stroke-dasharray="8,2"/>
+  <path d="M200 180 C350 160, 500 170, 750 150" fill="none" stroke="#ca8a04" stroke-width="4"/>
+
+  <!-- Conveyor Belt Assembly (Heavy Industrial) -->
+  <polygon points="120,440 680,440 600,280 200,280" fill="#111827"/>
+  <!-- Rubber Belt Surface -->
+  <polygon points="150,420 650,420 580,290 220,290" fill="#030712"/>
+
+  <!-- Steel Rollers (Idlers) -->
+  <line x1="240" y1="310" x2="560" y2="310" stroke="#94a3b8" stroke-width="8"/>
+  <line x1="200" y1="360" x2="600" y2="360" stroke="#94a3b8" stroke-width="10"/>
+  <line x1="160" y1="410" x2="640" y2="410" stroke="#94a3b8" stroke-width="12"/>
+
+  <!-- Hot Friction Spot & Burning Rubber Idler -->
+  <ellipse cx="430" cy="355" rx="45" ry="18" fill="url(#fireGlow)"/>
+  <path d="M410 360 Q430 300 450 360 Q440 330 430 305 Q420 330 410 360 Z" fill="#ef4444"/>
+  <path d="M418 360 Q430 320 442 360 Q436 340 430 325 Q424 340 418 360 Z" fill="#f59e0b"/>
+
+  <!-- Rising Coal Smoke -->
+  <ellipse cx="440" cy="270" rx="60" ry="30" fill="rgba(51, 65, 85, 0.6)"/>
+  <ellipse cx="460" cy="220" rx="90" ry="40" fill="rgba(30, 41, 59, 0.7)"/>
+
+  <!-- Spilled Fine Coal Dust on Floor -->
+  <path d="M120 440 Q250 430 380 445 Q500 435 680 445 L700 500 L100 500 Z" fill="#09090b"/>
+
+  <!-- Emergency Pull-Cord Switch along gallery -->
+  <line x1="120" y1="360" x2="680" y2="360" stroke="#ef4444" stroke-width="4"/>
+  <rect x="580" y="340" width="22" height="30" rx="4" fill="#dc2626"/>
+  <circle cx="591" cy="355" r="5" fill="#f8fafc"/>
+</svg>

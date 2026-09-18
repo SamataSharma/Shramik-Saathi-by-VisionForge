@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <rect width="800" height="500" fill="#09090b"/>
+  <!-- Broken Sandstone Roof Strata -->
+  <polygon points="0,0 800,0 800,140 680,160 520,130 380,170 200,135 0,150" fill="#3f3f46"/>
+  <!-- Roof Cracks & Separation Bedding Planes -->
+  <path d="M150 140 L240 80 L320 120 L420 70" fill="none" stroke="#ef4444" stroke-width="4"/>
+  <path d="M380 170 L480 130 L580 150" fill="none" stroke="#dc2626" stroke-width="3"/>
+
+  <!-- Spalling Falling Coal Chunks -->
+  <polygon points="360,190 390,180 385,210 355,205" fill="#18181b" stroke="#ef4444" stroke-width="1.5"/>
+  <polygon points="280,220 300,210 295,235" fill="#18181b"/>
+
+  <!-- Timber Support Prop (Cracked under roof pressure) -->
+  <rect x="220" y="140" width="28" height="300" fill="#78350f" stroke="#451a03" stroke-width="3"/>
+  <line x1="220" y1="260" x2="248" y2="275" stroke="#ef4444" stroke-width="4"/>
+
+  <!-- Digital Methane Detector Mounted on Timber -->
+  <rect x="210" y="200" width="48" height="36" rx="4" fill="#0284c7" stroke="#38bdf8" stroke-width="2"/>
+  <rect x="216" y="206" width="36" height="18" fill="#0f172a"/>
+  <text x="234" y="220" fill="#ef4444" font-family="monospace" font-weight="bold" font-size="11" text-anchor="middle">1.4%</text>
+
+  <!-- Continuous Miner Machine at Coal Face -->
+  <rect x="440" y="240" width="300" height="200" rx="12" fill="#d97706" stroke="#b45309" stroke-width="6"/>
+  <circle cx="480" cy="270" r="45" fill="#1f2937" stroke="#9ca3af" stroke-width="6" stroke-dasharray="14,6"/>
+  <circle cx="480" cy="270" r="16" fill="#facc15"/>
+</svg>

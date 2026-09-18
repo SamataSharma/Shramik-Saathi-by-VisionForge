@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <defs>
+    <radialGradient id="subBg" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#020617"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#subBg)"/>
+
+  <!-- Rock Walls with Mesh & Rock Bolts -->
+  <line x1="60" y1="80" x2="740" y2="80" stroke="#334155" stroke-width="2"/>
+  <line x1="60" y1="160" x2="740" y2="160" stroke="#334155" stroke-width="2"/>
+  <circle cx="180" cy="80" r="10" fill="#94a3b8"/>
+  <circle cx="380" cy="80" r="10" fill="#94a3b8"/>
+  <circle cx="580" cy="80" r="10" fill="#94a3b8"/>
+
+  <!-- High-Voltage Transformer Unit (3.3kV) -->
+  <rect x="220" y="160" width="220" height="230" rx="8" fill="#334155" stroke="#475569" stroke-width="6"/>
+  <rect x="240" y="180" width="180" height="100" fill="#1e293b"/>
+  <!-- Cooling Fins -->
+  <line x1="200" y1="200" x2="220" y2="200" stroke="#64748b" stroke-width="6"/>
+  <line x1="200" y1="240" x2="220" y2="240" stroke="#64748b" stroke-width="6"/>
+  <line x1="200" y1="280" x2="220" y2="280" stroke="#64748b" stroke-width="6"/>
+  <line x1="200" y1="320" x2="220" y2="320" stroke="#64748b" stroke-width="6"/>
+
+  <!-- Warning High Voltage Plaque -->
+  <polygon points="330,200 310,240 350,240" fill="#eab308"/>
+  <text x="330" y="270" fill="#ef4444" font-family="sans-serif" font-weight="bold" font-size="14" text-anchor="middle">DANGER 3.3kV</text>
+
+  <!-- Switchgear Cabinet on Right -->
+  <rect x="520" y="140" width="160" height="260" rx="6" fill="#475569" stroke="#64748b" stroke-width="4"/>
+  <circle cx="600" cy="200" r="18" fill="#dc2626"/>
+  <line x1="560" y1="260" x2="640" y2="260" stroke="#0f172a" stroke-width="4"/>
+
+  <!-- Water Puddle Near Transformer (Hazard 1) -->
+  <ellipse cx="320" cy="430" rx="140" ry="32" fill="rgba(56, 189, 248, 0.35)" stroke="#38bdf8" stroke-width="2"/>
+
+  <!-- Damaged / Frayed Trailing Cable (Hazard 2) -->
+  <path d="M120 450 Q280 430 420 440 T680 410" fill="none" stroke="#0f172a" stroke-width="12"/>
+  <path d="M420 440 L450 435" stroke="#f59e0b" stroke-width="6"/>
+  <!-- Electrical Arcing Spark -->
+  <polygon points="440,430 445,415 455,425 465,410 458,435" fill="#facc15"/>
+</svg>

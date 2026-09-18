@@ -1,0 +1,11 @@
+org.visionforge.minear:xml/network_security_config = 0x7f060000
+org.visionforge.minear:mipmap/ic_launcher_round = 0x7f030001
+org.visionforge.minear:style/AppTheme = 0x7f050000
+org.visionforge.minear:drawable/ic_launcher_round = 0x7f020001
+org.visionforge.minear:drawable/ic_launcher = 0x7f020000
+org.visionforge.minear:string/app_name = 0x7f040000
+org.visionforge.minear:color/primary = 0x7f010002
+org.visionforge.minear:color/primary_dark = 0x7f010003
+org.visionforge.minear:mipmap/ic_launcher = 0x7f030000
+org.visionforge.minear:color/background = 0x7f010001
+org.visionforge.minear:color/accent = 0x7f010000

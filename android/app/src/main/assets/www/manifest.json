@@ -1,0 +1,17 @@
+{
+  "name": "SHRAMIK SAATHI — Vocational Safety Simulator",
+  "short_name": "SHRAMIK SAATHI",
+  "description": "DGMS compliant AR Vocational Safety Training Simulator for Underground Coal Mines (Jharkhand)",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0b1f33",
+  "theme_color": "#1b3a5b",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/assets/images/worker_avatar.svg",
+      "sizes": "192x192 512x512",
+      "type": "image/svg+xml"
+    }
+  ]
+}

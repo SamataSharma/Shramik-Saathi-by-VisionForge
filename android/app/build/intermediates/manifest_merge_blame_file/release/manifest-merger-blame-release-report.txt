@@ -1,0 +1,94 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="org.visionforge.minear"
+4    android:versionCode="1"
+5    android:versionName="2.0.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="24"
+9        android:targetSdkVersion="34" />
+10
+11    <!-- Permissions for Offline Simulator, AR Camera & Voice Coaching -->
+12    <uses-permission android:name="android.permission.INTERNET" />
+12-->/Users/sahnikbarui/Downloads/final sih vision fordge/android/app/src/main/AndroidManifest.xml:8:5-67
+12-->/Users/sahnikbarui/Downloads/final sih vision fordge/android/app/src/main/AndroidManifest.xml:8:22-64
+13    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+13-->/Users/sahnikbarui/Downloads/final sih vision fordge/android/app/src/main/AndroidManifest.xml:9:5-79
+13-->/Users/sahnikbarui/Downloads/final sih vision fordge/android/app/src/main/AndroidManifest.xml:9:22-76
+14    <uses-permission android:name="android.permission.CAMERA" />
+14-->/Users/sahnikbarui/Downloads/final sih vision fordge/android/app/src/main/AndroidManifest.xml:10:5-65
+14-->/Users/sahnikbarui/Downloads/final sih vision fordge/android/app/src/main/AndroidManifest.xml:10:22-62
+15    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+15-->/Users/sahnikbarui/Downloads/final sih vision fordge/android/app/src/main/AndroidManifest.xml:11:5-71
+15-->/Users/sahnikbarui/Downloads/final sih vision fordge/android/app/src/main/AndroidManifest.xml:11:22-68
+16    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+16-->/Users/sahnikbarui/Downloads/final sih vision fordge/android/app/src/main/AndroidManifest.xml:12:5-80
+16-->/Users/sahnikbarui/Downloads/final sih vision fordge/android/app/src/main/AndroidManifest.xml:12:22-77
+17    <uses-permission android:name="android.permission.VIBRATE" />
+17-->/Users/sahnikbarui/Downloads/final sih vision fordge/android/app/src/main/AndroidManifest.xml:13:5-66
+17-->/Users/sahnikbarui/Downloads/final sih vision fordge/android/app/src/main/AndroidManifest.xml:13:22-63
+18    <uses-permission android:name="android.permission.WAKE_LOCK" />
+18-->/Users/sahnikbarui/Downloads/final sih vision fordge/android/app/src/main/AndroidManifest.xml:14:5-68
+18-->/Users/sahnikbarui/Downloads/final sih vision fordge/android/app/src/main/AndroidManifest.xml:14:22-65
+19
+20    <!-- Optional Camera Feature for devices without hardware camera -->
+21    <uses-feature
+21-->/Users/sahnikbarui/Downloads/final sih vision fordge/android/app/src/main/AndroidManifest.xml:17:5-19:36
+22        android:name="android.hardware.camera"
+22-->/Users/sahnikbarui/Downloads/final sih vision fordge/android/app/src/main/AndroidManifest.xml:18:9-47
+23        android:required="false" />
+23-->/Users/sahnikbarui/Downloads/final sih vision fordge/android/app/src/main/AndroidManifest.xml:19:9-33
+24    <uses-feature
+24-->/Users/sahnikbarui/Downloads/final sih vision fordge/android/app/src/main/AndroidManifest.xml:20:5-22:36
+25        android:name="android.hardware.camera.autofocus"
+25-->/Users/sahnikbarui/Downloads/final sih vision fordge/android/app/src/main/AndroidManifest.xml:21:9-57
+26        android:required="false" />
+26-->/Users/sahnikbarui/Downloads/final sih vision fordge/android/app/src/main/AndroidManifest.xml:22:9-33
+27
+28    <application
+28-->/Users/sahnikbarui/Downloads/final sih vision fordge/android/app/src/main/AndroidManifest.xml:24:5-46:19
+29        android:allowBackup="true"
+29-->/Users/sahnikbarui/Downloads/final sih vision fordge/android/app/src/main/AndroidManifest.xml:25:9-35
+30        android:extractNativeLibs="false"
+31        android:hardwareAccelerated="true"
+31-->/Users/sahnikbarui/Downloads/final sih vision fordge/android/app/src/main/AndroidManifest.xml:32:9-43
+32        android:icon="@mipmap/ic_launcher"
+32-->/Users/sahnikbarui/Downloads/final sih vision fordge/android/app/src/main/AndroidManifest.xml:26:9-43
+33        android:label="@string/app_name"
+33-->/Users/sahnikbarui/Downloads/final sih vision fordge/android/app/src/main/AndroidManifest.xml:27:9-41
+34        android:networkSecurityConfig="@xml/network_security_config"
+34-->/Users/sahnikbarui/Downloads/final sih vision fordge/android/app/src/main/AndroidManifest.xml:31:9-69
+35        android:roundIcon="@mipmap/ic_launcher_round"
+35-->/Users/sahnikbarui/Downloads/final sih vision fordge/android/app/src/main/AndroidManifest.xml:28:9-54
+36        android:supportsRtl="true"
+36-->/Users/sahnikbarui/Downloads/final sih vision fordge/android/app/src/main/AndroidManifest.xml:29:9-35
+37        android:theme="@style/AppTheme" >
+37-->/Users/sahnikbarui/Downloads/final sih vision fordge/android/app/src/main/AndroidManifest.xml:30:9-40
+38        <activity
+38-->/Users/sahnikbarui/Downloads/final sih vision fordge/android/app/src/main/AndroidManifest.xml:34:9-45:20
+39            android:name="org.visionforge.minear.MainActivity"
+39-->/Users/sahnikbarui/Downloads/final sih vision fordge/android/app/src/main/AndroidManifest.xml:35:13-41
+40            android:configChanges="orientation|screenSize|keyboardHidden|screenLayout|smallestScreenSize"
+40-->/Users/sahnikbarui/Downloads/final sih vision fordge/android/app/src/main/AndroidManifest.xml:38:13-106
+41            android:exported="true"
+41-->/Users/sahnikbarui/Downloads/final sih vision fordge/android/app/src/main/AndroidManifest.xml:36:13-36
+42            android:label="@string/app_name"
+42-->/Users/sahnikbarui/Downloads/final sih vision fordge/android/app/src/main/AndroidManifest.xml:37:13-45
+43            android:screenOrientation="portrait"
+43-->/Users/sahnikbarui/Downloads/final sih vision fordge/android/app/src/main/AndroidManifest.xml:40:13-49
+44            android:windowSoftInputMode="adjustResize" >
+44-->/Users/sahnikbarui/Downloads/final sih vision fordge/android/app/src/main/AndroidManifest.xml:39:13-55
+45            <intent-filter>
+45-->/Users/sahnikbarui/Downloads/final sih vision fordge/android/app/src/main/AndroidManifest.xml:41:13-44:29
+46                <action android:name="android.intent.action.MAIN" />
+46-->/Users/sahnikbarui/Downloads/final sih vision fordge/android/app/src/main/AndroidManifest.xml:42:17-69
+46-->/Users/sahnikbarui/Downloads/final sih vision fordge/android/app/src/main/AndroidManifest.xml:42:25-66
+47
+48                <category android:name="android.intent.category.LAUNCHER" />
+48-->/Users/sahnikbarui/Downloads/final sih vision fordge/android/app/src/main/AndroidManifest.xml:43:17-77
+48-->/Users/sahnikbarui/Downloads/final sih vision fordge/android/app/src/main/AndroidManifest.xml:43:27-74
+49            </intent-filter>
+50        </activity>
+51    </application>
+52
+53</manifest>

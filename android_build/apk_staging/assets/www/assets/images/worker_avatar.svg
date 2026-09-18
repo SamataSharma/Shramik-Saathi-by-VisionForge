@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2c3e50"/>
+      <stop offset="100%" stop-color="#1a252f"/>
+    </linearGradient>
+    <linearGradient id="skinGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#c68642"/>
+      <stop offset="100%" stop-color="#a5652a"/>
+    </linearGradient>
+    <clipPath id="circleClip">
+      <circle cx="60" cy="60" r="58"/>
+    </clipPath>
+  </defs>
+  <g clip-path="url(#circleClip)">
+    <rect width="120" height="120" fill="url(#bgGrad)"/>
+    <!-- Mining uniform & Collar -->
+    <path d="M20 120 L25 80 L60 85 L95 80 L100 120 Z" fill="#1e3a5f"/>
+    <path d="M45 82 L60 102 L75 82 Z" fill="#ffffff"/>
+    <path d="M52 82 L60 96 L68 82 Z" fill="#b91c1c"/>
+    <path d="M25 88 L35 120" stroke="#f59e0b" stroke-width="4"/>
+    <path d="M95 88 L85 120" stroke="#f59e0b" stroke-width="4"/>
+    <!-- Head & Neck -->
+    <rect x="52" y="65" width="16" height="22" rx="4" fill="url(#skinGrad)"/>
+    <ellipse cx="60" cy="52" rx="20" ry="24" fill="url(#skinGrad)"/>
+    <!-- Hair & Beard -->
+    <path d="M40 48 Q60 22 80 48 Q78 30 60 30 Q42 30 40 48 Z" fill="#171717"/>
+    <path d="M42 58 Q60 80 78 58 Q70 74 60 74 Q50 74 42 58 Z" fill="#171717"/>
+    <!-- Mustache -->
+    <path d="M48 61 Q60 67 72 61 Q60 63 48 61 Z" fill="#171717"/>
+    <!-- Eyes -->
+    <circle cx="53" cy="50" r="2.5" fill="#171717"/>
+    <circle cx="67" cy="50" r="2.5" fill="#171717"/>
+    <!-- Safety Hardhat -->
+    <path d="M36 38 C36 18, 84 18, 84 38 Z" fill="#fbbf24"/>
+    <path d="M30 38 L90 38 L90 43 L30 43 Z" rx="2" fill="#d97706"/>
+    <!-- Miner Lamp on hardhat -->
+    <rect x="55" y="24" width="10" height="10" rx="3" fill="#38bdf8"/>
+    <circle cx="60" cy="29" r="3" fill="#ffffff"/>
+  </g>
+  <circle cx="60" cy="60" r="58" fill="none" stroke="#3b82f6" stroke-width="3"/>
+</svg>

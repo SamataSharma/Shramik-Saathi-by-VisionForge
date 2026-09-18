@@ -1,0 +1,414 @@
+/* VISIONFORGE - MINE AR HUD & 3D WebXR Stylesheet */
+
+#ar-viewport-container {
+  position: fixed;
+  inset: 0;
+  background-color: #050a12;
+  z-index: 900;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Background Camera Stream & Three.js Canvas - 100% full screen for flawless spatial alignment */
+#ar-video-stream {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+#ar-three-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: auto;
+}
+
+/* Mine Gallery 3D Fallback Background (when camera is not active) */
+.gallery-simulation-active #ar-video-stream {
+  display: none;
+}
+
+.gallery-simulation-active #ar-viewport-container {
+  background: radial-gradient(circle at center, #1b2636 0%, #0d1520 70%, #050911 100%);
+}
+
+/* Tactical HUD Overlay - Respects Android display cutout, notch, and navigation bar */
+#ar-hud-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-top: max(12px, var(--safe-top));
+  padding-bottom: max(12px, var(--safe-bottom));
+  padding-left: max(12px, var(--safe-left));
+  padding-right: max(12px, var(--safe-right));
+  pointer-events: none;
+}
+
+#ar-hud-overlay * {
+  pointer-events: auto;
+}
+
+/* HUD Top Header */
+.hud-top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(11, 23, 40, 0.85);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  border-radius: var(--radius-lg);
+  padding: 10px 16px;
+  color: #ffffff;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.hud-scenario-info h3 {
+  font-size: 13px;
+  font-weight: 700;
+  color: #38bdf8;
+  letter-spacing: 0.5px;
+}
+
+.hud-scenario-info span {
+  font-size: 11px;
+  color: #94a3b8;
+}
+
+.hud-timer-badge {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 18px;
+  font-weight: 800;
+  color: #f59e0b;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(245, 158, 11, 0.4);
+}
+
+.hud-score-chip {
+  font-size: 13px;
+  font-weight: 700;
+  color: #10b981;
+  background: rgba(16, 185, 129, 0.15);
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+/* Center Reticle & CV Bounding Box */
+.hud-center-zone {
+  position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.cv-bounding-box {
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  border: 2px dashed #0284c7;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 8px;
+  animation: cvPulse 2s infinite ease-in-out;
+  transition: all 0.3s ease;
+}
+
+.cv-bounding-box.locked {
+  border: 2px solid #10b981;
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.4);
+}
+
+.cv-corner-tl { position: absolute; top: -2px; left: -2px; width: 14px; height: 14px; border-top: 3px solid #38bdf8; border-left: 3px solid #38bdf8; }
+.cv-corner-tr { position: absolute; top: -2px; right: -2px; width: 14px; height: 14px; border-top: 3px solid #38bdf8; border-right: 3px solid #38bdf8; }
+.cv-corner-bl { position: absolute; bottom: -2px; left: -2px; width: 14px; height: 14px; border-bottom: 3px solid #38bdf8; border-left: 3px solid #38bdf8; }
+.cv-corner-br { position: absolute; bottom: -2px; right: -2px; width: 14px; height: 14px; border-bottom: 3px solid #38bdf8; border-right: 3px solid #38bdf8; }
+
+.cv-label-tag {
+  background: rgba(14, 165, 233, 0.85);
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 4px;
+  align-self: flex-start;
+  font-family: monospace;
+}
+
+.cv-bounding-box.locked .cv-label-tag {
+  background: rgba(16, 185, 129, 0.9);
+}
+
+@keyframes cvPulse {
+  0% { opacity: 0.7; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.02); }
+  100% { opacity: 0.7; transform: scale(1); }
+}
+
+/* Floating Danger Alert Banner */
+.hud-danger-alert {
+  background: rgba(220, 38, 38, 0.9);
+  color: #ffffff;
+  padding: 8px 16px;
+  border-radius: var(--radius-full);
+  font-size: 12px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 15px rgba(220, 38, 38, 0.5);
+  animation: pulseDanger 1.2s infinite;
+  margin-bottom: 12px;
+}
+
+@keyframes pulseDanger {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.85; transform: scale(0.98); }
+}
+
+/* Floating Floating Score Notifications */
+.floating-feedback {
+  position: absolute;
+  top: 30%;
+  background: rgba(15, 23, 42, 0.92);
+  color: #38bdf8;
+  border: 1px solid #38bdf8;
+  padding: 10px 18px;
+  border-radius: var(--radius-lg);
+  font-size: 13px;
+  font-weight: 700;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+  animation: floatUpFade 2.5s forwards ease-out;
+  pointer-events: none;
+  z-index: 20;
+}
+
+.floating-feedback.penalty {
+  color: #ef4444;
+  border-color: #ef4444;
+}
+
+@keyframes floatUpFade {
+  0% { opacity: 0; transform: translateY(15px); }
+  15% { opacity: 1; transform: translateY(0); }
+  80% { opacity: 1; transform: translateY(-10px); }
+  100% { opacity: 0; transform: translateY(-25px); }
+}
+
+/* Bottom Control Deck for Response Steps */
+.hud-control-deck {
+  background: rgba(11, 23, 40, 0.92);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-xl);
+  padding: 16px;
+  box-shadow: 0 -8px 25px rgba(0, 0, 0, 0.5);
+}
+
+.deck-step-title {
+  font-size: 12px;
+  font-weight: 700;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.deck-options-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.deck-btn {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #f1f5f9;
+  padding: 10px 12px;
+  border-radius: var(--radius-md);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+}
+
+.deck-btn:hover {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.deck-btn.selected {
+  background: linear-gradient(135deg, #0284c7, #2563eb);
+  border-color: #38bdf8;
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.4);
+}
+
+.deck-btn.danger-action {
+  background: rgba(239, 68, 68, 0.15);
+  border-color: rgba(239, 68, 68, 0.3);
+  color: #fca5a5;
+}
+
+/* PASS Action Buttons (4 Steps) */
+.pass-controls-row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.pass-step-btn {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #e2e8f0;
+  padding: 10px 6px;
+  border-radius: var(--radius-md);
+  font-size: 11px;
+  font-weight: 700;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pass-step-btn .pass-letter {
+  font-size: 15px;
+  color: #f59e0b;
+}
+
+.pass-step-btn.completed {
+  background: rgba(16, 185, 129, 0.2);
+  border-color: #10b981;
+  color: #6ee7b7;
+}
+
+.pass-step-btn.completed .pass-letter {
+  color: #34d399;
+}
+
+/* Exit / Switch Mode Button */
+.hud-util-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.btn-hud-ghost {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #cbd5e1;
+  font-size: 11px;
+  padding: 5px 12px;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+}
+
+/* Three.js Interactive Canvas for Pointer/Touch Look */
+#ar-three-canvas {
+  pointer-events: auto;
+  cursor: grab;
+}
+#ar-three-canvas:active {
+  cursor: grabbing;
+}
+
+/* 3-State Virtual Safety Buddy Styles */
+.buddy-hdr-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #cbd5e1;
+  width: 22px;
+  height: 22px;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.15s ease;
+}
+
+.buddy-hdr-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+}
+
+/* Floating Buddy Mini Pill (State 2: Minimized) */
+.buddy-mini-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(15, 23, 42, 0.92);
+  border: 1.5px solid #0284c7;
+  color: #ffffff;
+  padding: 6px 12px;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  transition: all 0.2s ease;
+  animation: miniPillFloat 3s infinite ease-in-out;
+}
+
+.buddy-mini-pill:hover {
+  transform: translateY(-2px);
+  border-color: #38bdf8;
+  background: rgba(2, 132, 199, 0.3);
+}
+
+.buddy-mini-pill.completed {
+  border-color: #10b981;
+  background: rgba(6, 78, 59, 0.9);
+}
+
+@keyframes miniPillFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+
+/* HUD Top Buddy ON/OFF Toggle Switch */
+.hud-buddy-toggle-btn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(2, 132, 199, 0.25);
+  border: 1px solid #38bdf8;
+  color: #e0f2fe;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.hud-buddy-toggle-btn.off {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: #94a3b8;
+}
+

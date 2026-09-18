@@ -1,0 +1,341 @@
+/* VISIONFORGE - Supervisor Dashboard & Certificate Stylesheet */
+
+.supervisor-container {
+  padding: 10px 0 24px 0;
+}
+
+.supervisor-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.supervisor-title-group h2 {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.supervisor-title-group p {
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+/* KPI Stat Cards Grid */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.kpi-card {
+  background: #ffffff;
+  border-radius: var(--radius-lg);
+  padding: 16px;
+  border: 1px solid #e2e8f0;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+}
+
+.kpi-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 6px;
+}
+
+.kpi-value {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.kpi-subtext {
+  font-size: 11px;
+  color: #10b981;
+  font-weight: 600;
+  margin-top: 4px;
+}
+
+.kpi-card.alert-card .kpi-value {
+  color: #ef4444;
+}
+
+.kpi-card.alert-card .kpi-subtext {
+  color: #ef4444;
+}
+
+/* Workforce Roster Table */
+.dashboard-card {
+  background: #ffffff;
+  border-radius: var(--radius-xl);
+  padding: 20px;
+  border: 1px solid #e2e8f0;
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 24px;
+}
+
+.card-header-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.card-header-flex h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.roster-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  text-align: left;
+}
+
+.roster-table th {
+  background: #f8fafc;
+  padding: 12px 14px;
+  color: var(--text-muted);
+  font-weight: 700;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.roster-table td {
+  padding: 14px;
+  border-bottom: 1px solid #f1f5f9;
+  vertical-align: middle;
+}
+
+.roster-table tr:hover td {
+  background-color: #f8fafc;
+  cursor: pointer;
+}
+
+.worker-cell {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.worker-cell-avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid #cbd5e1;
+}
+
+.worker-name-role {
+  display: flex;
+  flex-direction: column;
+}
+
+.worker-name-role strong {
+  color: var(--text-primary);
+}
+
+.worker-name-role small {
+  color: var(--text-muted);
+  font-size: 11px;
+}
+
+/* Status Badges */
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.status-green {
+  background-color: #d1fae5;
+  color: #065f46;
+}
+
+.status-yellow {
+  background-color: #fef3c7;
+  color: #92400e;
+}
+
+.status-red {
+  background-color: #fee2e2;
+  color: #991b1b;
+}
+
+/* Retraining Alert List */
+.retraining-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px;
+  background: #fff5f5;
+  border-left: 4px solid #ef4444;
+  border-radius: var(--radius-md);
+  margin-bottom: 10px;
+}
+
+.retraining-info h4 {
+  font-size: 14px;
+  font-weight: 700;
+  color: #991b1b;
+}
+
+.retraining-info p {
+  font-size: 12px;
+  color: #b91c1c;
+  margin-top: 2px;
+}
+
+/* Competency Radar / Pillar Bars */
+.pillar-row {
+  margin-bottom: 12px;
+}
+
+.pillar-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 4px;
+}
+
+.pillar-track {
+  width: 100%;
+  height: 8px;
+  background: #e2e8f0;
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.pillar-fill {
+  height: 100%;
+  border-radius: var(--radius-full);
+  background: #0284c7;
+}
+
+.pillar-fill.high { background: #10b981; }
+.pillar-fill.mid { background: #f59e0b; }
+.pillar-fill.low { background: #ef4444; }
+
+/* =========================================================
+   OFFICIAL DGMS CERTIFICATE STYLING
+   ========================================================= */
+.certificate-frame {
+  background: #ffffff;
+  border: 12px double #1e3a5f;
+  border-radius: var(--radius-lg);
+  padding: 30px 24px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  margin-bottom: 20px;
+}
+
+.cert-emblem {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 12px auto;
+  display: block;
+}
+
+.cert-dgms-header {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  color: #64748b;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.cert-main-title {
+  font-size: 20px;
+  font-weight: 900;
+  color: #0b1f33;
+  margin-bottom: 16px;
+}
+
+.cert-recipient-label {
+  font-size: 13px;
+  color: #64748b;
+  font-style: italic;
+  margin-bottom: 4px;
+}
+
+.cert-worker-name {
+  font-size: 24px;
+  font-weight: 800;
+  color: #1e3a8a;
+  border-bottom: 2px solid #cbd5e1;
+  display: inline-block;
+  padding: 0 20px 4px 20px;
+  margin-bottom: 16px;
+}
+
+.cert-body-desc {
+  font-size: 13px;
+  line-height: 1.6;
+  color: #334155;
+  max-width: 500px;
+  margin: 0 auto 20px auto;
+}
+
+.cert-meta-grid {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-top: 1px solid #e2e8f0;
+  padding-top: 16px;
+  margin-top: 20px;
+}
+
+.cert-meta-col {
+  text-align: center;
+}
+
+.cert-meta-label {
+  font-size: 10px;
+  text-transform: uppercase;
+  color: #94a3b8;
+  font-weight: 700;
+}
+
+.cert-meta-val {
+  font-size: 13px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-top: 2px;
+}
+
+.cert-qr-box {
+  width: 70px;
+  height: 70px;
+  background: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}

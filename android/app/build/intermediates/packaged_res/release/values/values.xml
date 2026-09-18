@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="accent">#ffb300</color>
+    <color name="background">#0b1f33</color>
+    <color name="primary">#0b1f33</color>
+    <color name="primary_dark">#06111c</color>
+    <string name="app_name">SHRAMIK SAATHI</string>
+    <style name="AppTheme" parent="@android:style/Theme.DeviceDefault.NoActionBar">
+        <item name="android:statusBarColor">@color/primary_dark</item>
+        <item name="android:navigationBarColor">@color/primary_dark</item>
+        <item name="android:windowBackground">@color/background</item>
+    </style>
+</resources>
